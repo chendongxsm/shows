@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="{ height: height }">
+  <div class="container" >
     <div class="demo">
       <wxc-minibar title="个人中心"
                    background-color="#009ff0"
@@ -23,6 +23,9 @@
       minibarRightButtonClick () {
         modal.toast({ 'message': 'click rightButton!', 'duration': 1 });
       }
+    },
+    created(){
+      console.log(123)
     }
   };
 </script>

@@ -5,13 +5,18 @@
                :tab-styles="tabIconFontStyles"
                title-type="iconFont"
                @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-               <router-view/>
-  </wxc-tab-bar>
+      <Index class="item-container" :style="contentStyle"/>
+      <Task class="item-container" :style="contentStyle"/>
+      <User class="item-container" :style="contentStyle"/>
+    </wxc-tab-bar>
   </div>
 </template>
 
 <script>
 import { WxcTabBar, Utils } from "weex-ui";
+import Index from '@/components/index/index'
+import Task from '@/components/task/task'
+import User from '@/components/user/user'
 export default {
   name: "App",
   data() {
@@ -49,19 +54,24 @@ export default {
       }
     };
   },
-  components: { WxcTabBar },
+  components: { 
+    WxcTabBar,
+    Index,
+    Task,
+    User 
+  },
   created() {
     const tabPageHeight = Utils.env.getPageHeight();
     // 如果页面没有导航栏，可以用下面这个计算高度的方法
     // const tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
-    const { tabStyles } = this;
-    this.contentStyle = { height: tabPageHeight - tabStyles.height + "px" };
+    const { tabIconFontStyles } = this;
+    this.contentStyle = { height: tabPageHeight - tabIconFontStyles.height + "px", width: '750px', };
   },
   methods: {
     wxcTabBarCurrentTabSelected(e) {
-      const urlArr = ["/", "/task/task", "/user/user"];
-      let index = e.page;
-      this.$router.push(urlArr[index]);
+      // let urlArr = ["/", "/task/task", "/user/user"];
+      // let index = e.page;
+      // this.$router.push(urlArr[index]);
     }
   }
 };
