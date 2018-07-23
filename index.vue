@@ -1,79 +1,72 @@
 <template>
   <div>
-    
-    <wxc-tab-bar :tab-titles="tabIconFontTitles"
-               :tab-styles="tabIconFontStyles"
-               title-type="iconFont"
-               @wxcTabBarCurrentTabSelected="wxcTabBarCurrentTabSelected">
-      <Index class="item-container" :style="contentStyle"/>
-      <Task class="item-container" :style="contentStyle"/>
-      <User class="item-container" :style="contentStyle"/>
-    </wxc-tab-bar>
+    <tabBar :tabIconFontTitles="tabIconFontTitles" 
+      :tabIconFontStyles="tabIconFontStyles"
+      :currentPage="currentPage"
+      @tabTo="tabTo"
+    ></tabBar>
   </div>
 </template>
 
 <script>
-import { WxcTabBar, Utils } from "weex-ui";
-import Index from '@/components/index/index'
-import Task from '@/components/task/task'
-import User from '@/components/user/user'
+import util from "@/assets/util";
+import tabBar from "@/components/tabBar";
 export default {
-  name: "App",
-  data() {
-    return {
-      tabIconFontTitles: [
-        {
-          title: "首页",
-          codePoint: "\ue8ff"
-        },
-        {
-          title: "任务大厅",
-          codePoint: "\ue892"
-        },
-        {
-          title: "我的",
-          codePoint: "\ue8a0",
+    name: "App",
+    data() {
+        return {
+            tabIconFontTitles: [
+                {
+                title: "首页",
+                iconfont: "\ue8ff",
+                path: "/"
+                },
+                {
+                title: "任务大厅",
+                iconfont: "\ue892",
+                path: "/task/task",
+                notice: 3
+                },
+                {
+                title: "我的",
+                iconfont: "\ue8a0",
+                path: "/user/user",
+                dot: true
+                }
+            ],
+            tabIconFontStyles: {
+                bgColor: "#FFFFFF",
+                titleColor: "#666666",
+                activeTitleColor: "#f10215",
+                activeBgColor: "#FFFFFF",
+                isActiveTitleBold: false,
+                width: 160,
+                height: 120,
+                fontSize: 24,
+                textPaddingLeft: 10,
+                textPaddingRight: 10,
+                iconFontSize: 50,
+                iconFontMarginBottom: 8,
+                iconFontColor: "#333333",
+                activeIconFontColor: "#f10215",
+                iconFontUrl: "//at.alicdn.com/t/font_755393_60j6n7j3vnj.ttf"
+            },
+            currentPage: 0
+        };
+    },
+    components: {
+        tabBar
+    },
+    created() {
+        util.initIconFont();
+    },
+    methods: {
+        tabTo(data) {
+            this.currentPage = data.data.index
+            let path = data.data.path || "";
+            this.$router && this.$router.push(path);
         }
-      ],
-      tabIconFontStyles: {
-        bgColor: "#FFFFFF",
-        titleColor: "#666666",
-        activeTitleColor: "#f10215",
-        activeBgColor: "#FFFFFF",
-        isActiveTitleBold: false,
-        width: 160,
-        height: 120,
-        fontSize: 24,
-        textPaddingLeft: 10,
-        textPaddingRight: 10,
-        iconFontSize: 50,
-        iconFontMarginBottom: 8,
-        iconFontColor: "#333333",
-        activeIconFontColor: "#f10215",
-        iconFontUrl: "//at.alicdn.com/t/font_755393_60j6n7j3vnj.ttf"
-      }
-    };
-  },
-  components: { 
-    WxcTabBar,
-    Index,
-    Task,
-    User 
-  },
-  created() {
-    const tabPageHeight = Utils.env.getPageHeight();
-    // 如果页面没有导航栏，可以用下面这个计算高度的方法
-    // const tabPageHeight = env.deviceHeight / env.deviceWidth * 750;
-    const { tabIconFontStyles } = this;
-    this.contentStyle = { height: tabPageHeight - tabIconFontStyles.height + "px", width: '750px', };
-  },
-  methods: {
-    wxcTabBarCurrentTabSelected(e) {
-      // let urlArr = ["/", "/task/task", "/user/user"];
-      // let index = e.page;
-      // this.$router.push(urlArr[index]);
     }
-  }
 };
 </script>
 
