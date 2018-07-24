@@ -1,0 +1,7 @@
+body::before {
+    content: "";
+    height: 0;
+    overflow: hidden;
+    color: transparent;
+    display: block;
+}

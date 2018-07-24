@@ -3,7 +3,7 @@ let func = {
         let domModule = weex.requireModule('dom');
         domModule.addRule('fontFace', {
             'fontFamily': "iconfont",
-            'src': "url('http://at.alicdn.com/t/font_755393_60j6n7j3vnj.ttf')"
+            'src': "url('http://at.alicdn.com/t/font_755393_jkwrq0x7hag.ttf')"
         });
     },
 }
