@@ -1,6 +1,10 @@
 <template>
   <div class="container" >
-    <div class="top-wrapper"></div>
+    <div class="top-wrapper">
+      <div class="avatar-wrapper">
+        <image src="https://img1.360buyimg.com/da/s750x366_jfs/t24556/120/1048702098/197464/88130084/5b4f153cN998ac1ea.jpg!cr_1125x549_0_72.dpg" style="width: 100px;height: 100px;"></image>
+      </div>
+    </div>
     <div class="menu-wrapper">
       <div class="menu first-menu">
         <p class="menu-num">3</p>
