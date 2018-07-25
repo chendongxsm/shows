@@ -2,8 +2,15 @@
   <div class="container" >
     <div class="top-wrapper">
       <div class="avatar-wrapper">
-        <image src="https://img1.360buyimg.com/da/s750x366_jfs/t24556/120/1048702098/197464/88130084/5b4f153cN998ac1ea.jpg!cr_1125x549_0_72.dpg" style="width: 100px;height: 100px;"></image>
+        <image class="avatar" src="https://img1.360buyimg.com/da/s750x366_jfs/t24556/120/1048702098/197464/88130084/5b4f153cN998ac1ea.jpg!cr_1125x549_0_72.dpg" />
+        <div class="info-wrapper">
+          <span class="nickname">陈东xsm</span>
+          <span class="vip">银牌会员</span>
+        </div>
       </div>
+      <span class="icon icon-service top-icon">&#xe891;</span>
+      <span class="icon icon-setting top-icon">&#xe893;</span>
+      
     </div>
     <div class="menu-wrapper">
       <div class="menu first-menu">
@@ -106,14 +113,18 @@
   };
 </script>
 <style scoped>
+  .icon{
+    font-family: iconfont
+  }
   .container{
     height: 100%;
     background: #f1f1f1;
   }
   .top-wrapper{
+    position: relative;
     width: 750px;
-    height: 300px;
-    background: #0cc19d;
+    height: 250px;
+    background: #e83632;
   }
   .menu-wrapper{
     display: flex;
@@ -138,5 +149,38 @@
     margin-top: 6px;
     font-size: 15px;
     color: #666;
+  }
+  .avatar-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 55px;
+    padding-left: 20px;
+  }
+  .avatar{
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+  }
+  .info-wrapper{
+    margin-left: 20px;
+  }
+  .nickname{
+    color: #fff;
+  }
+  .vip{
+    color: #fff;
+  }
+  .top-icon{
+    position: absolute;
+    top: 30px;
+    font-size: 50px;
+    color: #fff;
+  }
+  .icon-service{
+    right: 40px;
+  }
+  .icon-setting{
+    right: 120px;
   }
 </style>
