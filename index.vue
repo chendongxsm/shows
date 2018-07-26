@@ -58,7 +58,8 @@ export default {
     tabBar
   },
   created() {
-    util.initIconFont()
+
+    // util.initIconFont()
   },
   methods: {
     tabTo(data) {

@@ -5,8 +5,9 @@
         <image class="image" resize="cover" :src="img"></image>
       </div>
     </slider> 
-    <div class="menu">123</div>
-    <div class="menu">2123</div>
+    <div class="menu">1231111</div>
+    <div class="menu">2123312321</div>
+    <image class="image" style="width:750px;width:300px" src="https://img1.360buyimg.com/da/jfs/t20455/301/2314342412/184746/2428898/5b50376cNea0cbd1a.jpg!cr_1125x549_0_72.dpg"></image>
   </div>
 </template>
 <style scoped>

@@ -2,18 +2,18 @@
   <div class="nav-bar-wrapper">
     <div class="title-wrapper">
       <div class="title-left">
-        <span class="icon title-icon">{{navBarText.titleLeftIcon}}</span>
-        <span class="title-text">{{navBarText.titleLeftText}}</span>
+        <text class="icon title-icon">{{navBarText.titleLeftIcon}}</text>
+        <text class="title-text">{{navBarText.titleLeftText}}</text>
       </div>
       <div class="title-right">
-        <span class="title-text">{{navBarText.titleRightText}}</span>
-        <span class="icon title-icon">&#xe8f1;</span>
+        <text class="title-text">{{navBarText.titleRightText}}</text>
+        <text class="icon title-icon">&#xe8f1;</text>
       </div>
     </div>
     <div class="nav-list">
       <div class="nav-item" v-for="item in navBarText.navList" @click="jumpUrl(item.path)">
-        <p class="icon nav-item-icon">{{item.icon}}</p>
-        <p class="nav-item-title">{{item.title}}</p>
+        <text class="icon nav-item-icon">{{item.icon}}</text>
+        <text class="nav-item-title">{{item.title}}</text>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ export default {
     font-family: iconfont;
   }
   .nav-bar-wrapper{
-    background: #fff;
+    background-color: #fff;
   }
   .title-wrapper{
     display: flex;
@@ -53,7 +53,9 @@ export default {
     width: 750px;
     /* height: 60px; */
     padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #eee;
   }
   .title-left, .title-right{
     display: flex;
